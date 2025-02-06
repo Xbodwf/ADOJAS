@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADOJAS</title>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/notyf/3.10.0/notyf.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        :root {
+            --primary-color: #9a45e0d0;
+            --text-color: #2c3e50;
+            --bg-color: #ffffff;
+        }
+
+        body {
+            color: var(--text-color);
+            background: var(--bg-color);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--bg-color);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .hero-logo {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 2rem;
+            background: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        /* Features Section */
+        .features {
+            background: #f8f9fa;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+
+        .code-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #2d2d2d;
+            padding: 2rem;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        pre {
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-color);
+                padding: 1rem;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .instruction-section {
+                width: 80%;
+            }
+
+            .bz {
+                width: 80%;
+            }
+        }
+
+        .instruction-section {
+            width: 60%;
+            left: 0px;
+            right: 0px;
+            margin: 0 auto;
+            padding: 6rem 2rem 4rem;
+        }
+
+        .bz {
+            width: 60%;
+            left: 0px;
+            right: 0px;
+            margin: 0 auto;
+            padding: 6rem 2rem 4rem;
+        }
+
+        #bz_table>* {
+            outline: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">ADOJAS</div>
+        <div class="nav-links">
+            <a href="#hero">简介</a>
+            <a href="#features">特点</a>
+            <a href="#dev">使用&疑难解答</a>
+            <a id="download" href="#d">下载</a>
+            <a href="#about" href="https://github.com/flutas-web/ADOJAS"><img
+                    src="https://img.icons8.com/?size=24&id=62856"></a>
+        </div>
+        <div class="menu-toggle">☰</div>
+    </nav>
+
+    <section class="hero" id="hero">
+        <div class="hero-logo">
+            <img src="https://adofaitools.top/assets/tool-1737806300049/icon.jpg" alt="ADOJAS Logo"
+                style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+        </div>
+        <h1>ADOJAS</h1>
+        <p>*(A Dance of Javascript and Scratch)</p>
+        <p>让你在任何平台玩ADOFAI</p>
+        <a href="https://github.com/flutas-web/ADOJAS/blob/main/readme.md" class="cta-button">了解更多</a>
+    </section>
+
+    <section class="features" id="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>轻量化的体验</h3>
+                <p>对比于原版ADOFAI「大于1.0Gib的」臃肿体积,ADOJAS的轻巧可以在小内存设备上更加通用.</p>
+            </div>
+            <div class="feature-card">
+                <h3>原汁原味</h3>
+                <p>我们尽量在还原原版ADOFAI的各种事件,致力于用更小的项目体积和更少的源代码做到更多的功能</p>
+            </div>
+            <div class="feature-card">
+                <h3>多平台</h3>
+                <p>你可以在任何平台(包括Android、macOS、Windows、Linux发行版)上游玩ADOJAS.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="dev" id="dev">
+        <div class="instruction-section">
+            <p>ADOJAS是一个为了还原原版ADOFAI而制作的可跨多平台项目,使用了Javascript和Scratch(Turbowarp)进行制作</p>
+
+            <h2>开始之前:</h2>>
+            <h3>请确保一切的准备工作已经完成</h3>
+            <ol>
+                <li>请确保您的浏览器内核版本达到要求. <a href="#bz">查看标准</a></li>
+                <li>(移动端用户)已经正确下载并安装APK.(如果您是从其他渠道下载的安装程序可能需要进行额外的数字签名)</li>
+            </ol>
+            <h3>Q:如何导入文件?</h3>
+            <p>A: 首先你需要启用Debug模式</p>
+
+            <h3>Q: 为什么要启用Debug模式,它是啥?</h3>
+            <p>A: ADOJAS调试工具,也是为了防止对游戏本身一无所知又想免费玩盗版的用户</p>
+
+            <h3>开启办法:</h3>
+            <ol>
+                <li>(仅针对HTML版本)
+                    打开ADOJAS[Rewrite].html (不要使用系统自带浏览器&amp;安卓用户不要使用HTML查看器&amp;电脑请不要使用Internet Explorer||Microsoft
+                    Edge旧版)
+                </li>
+                <li>进入后手机端需要连接键盘(之后的版本就不用了)，电脑端直接按下ADOFAI中启用渐变球的隐藏代码那几个键</li>
+                <li>如果你没有操作失误，你应该可以看到右下角的开发者选项按钮</li>
+                <li>点击按钮，将game::debug滑块拉到1</li>
+                <li>左上角即可见导入文件按钮</li>
+                <li>其他位置有自动播放开关/音频输入延迟/是否强制完美/是否显示判定(有bug)等一系列功能</li>
+                <li>文件导入不用说了，导入完毕控制小球进入关卡编辑器传送门即可开始播放</li>
+            </ol>
+            <button class="copy-button" onclick="copyGithubLink()">访问 GitHub 仓库</button>
+        </div>
+    </section>
+
+    <section class="bz" id="bz">
+        <h2>支持ADOJAS的浏览器版本号</h2>
+        <p>(Tips: 数据均来源于网络)</p>
+        <table id="bz_table">
+            <thead>
+                <tr>
+                    <th>浏览器</th>
+                    <th>不支持的版本</th>
+                    <th>部分支持的版本</th>
+                    <th>支持的版本</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>IE</td>
+                    <td>6-10</td>
+                    <td>11</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><strong>Edge</strong></td>
+                    <td></td>
+                    <td>12-14</td>
+                    <td>15-18、79-87</td>
+                </tr>
+                <tr>
+                    <td>Firefox</td>
+                    <td>2-5</td>
+                    <td>6-53</td>
+                    <td>54-86</td>
+                </tr>
+                <tr>
+                    <td>Chrome</td>
+                    <td>4-20</td>
+                    <td>21-50</td>
+                    <td>51-90</td>
+                </tr>
+                <tr>
+                    <td>Safari</td>
+                    <td>3.1-7</td>
+                    <td>7.1-9.1</td>
+                    <td>10-13.1、14、TP</td>
+                </tr>
+                <tr>
+                    <td>Opera</td>
+                    <td>10-12.1</td>
+                    <td>15-37</td>
+                    <td>38-72</td>
+                </tr>
+                <tr>
+                    <td><strong>iOS Safari</strong></td>
+                    <td>3.2-6.1</td>
+                    <td>7-9.3</td>
+                    <td>10-13.7、14.2</td>
+                </tr>
+                <tr>
+                    <td><strong>Opera Mini</strong></td>
+                    <td>all</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><strong>Android Browser</strong></td>
+                    <td>2.1-4.3</td>
+                    <td>4.4-4.4.4</td>
+                    <td>81</td>
+                </tr>
+                <tr>
+                    <td><strong>Opera Mobile</strong></td>
+                    <td>12-12.1</td>
+                    <td></td>
+                    <td>59</td>
+                </tr>
+                <tr>
+                    <td>Chrome for Android</td>
+                    <td></td>
+                    <td></td>
+                    <td>87</td>
+                </tr>
+                <tr>
+                    <td>Firefox for Android</td>
+                    <td></td>
+                    <td></td>
+                    <td>83</td>
+                </tr>
+                <tr>
+                    <td>UC Browser for Android</td>
+                    <td></td>
+                    <td></td>
+                    <td>12.12</td>
+                </tr>
+                <tr>
+                    <td>Samsung Internet</td>
+                    <td></td>
+                    <td>4</td>
+                    <td>5-13.0</td>
+                </tr>
+                <tr>
+                    <td>QQ Browser</td>
+                    <td></td>
+                    <td></td>
+                    <td>10.4</td>
+                </tr>
+                <tr>
+                    <td>Baidu Browser</td>
+                    <td></td>
+                    <td>7.12</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>KaiOS Browser</td>
+                    <td></td>
+                    <td>2.5</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/notyf/3.10.0/notyf.min.js"></script>
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.navbar')) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const section = document.querySelector(this.getAttribute('href'));
+                if (section) {
+                    section.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        globalThis.notyf = new Notyf({
+            position: {
+                x: 'left',
+                y: 'top'
+            },
+            duration: 3000,
+            dismissible: true,
+            types: [
+                { type: 'success', background: 'green' },
+                { type: 'error', background: 'red' },
+                { type: 'warning', background: 'yellow' }
+            ]
+        });
+
+        document.querySelector('a#download').addEventListener('click', () => {
+            notyf.error('请使用ADOFAI Tools进行下载!');
+        })
+
+
+    </script>
+</body>
+
+</html>
