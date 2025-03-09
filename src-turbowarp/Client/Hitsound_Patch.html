@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio File Upload and Export</title>
+</head>
+
+<body>
+    <input type="file" id="fileInput" accept="audio/*" multiple>
+    <button id="exportButton">Export as JSON</button>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const exportButton = document.getElementById('exportButton');
+
+        exportButton.addEventListener('click', async () => {
+            const files = fileInput.files;
+            if (files.length === 0) {
+                alert('请选择至少一个音频文件。');
+                return;
+            }
+
+            const audioData = {};
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+
+                await new Promise((resolve) => {
+                    reader.onload = () => {
+                        const fileNameWithoutExt = file.name.replace(/\.[^/.]+$/, '');
+                        audioData[fileNameWithoutExt] = reader.result;
+                        resolve();
+                    };
+
+                    reader.readAsDataURL(file);
+                });
+            }
+
+            const jsonData = JSON.stringify(audioData, null, 2);
+            const blob = new Blob([jsonData], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'audio_data.json';
+            a.click();
+
+            URL.revokeObjectURL(url);
+        });
+    </script>
+</body>
+
+</html>
