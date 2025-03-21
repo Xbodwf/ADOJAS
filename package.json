@@ -1,12 +1,15 @@
 {
   "name": "adojas",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.39.1",
   "type": "module",
   "scripts": {
     "tauri": "tauri"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^2"
+  },
+  "dependencies": {
+    "axml2xml": "^1.0.1"
   }
 }

@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      axml2xml:
+        specifier: ^1.0.1
+        version: 1.0.1
     devDependencies:
       '@tauri-apps/cli':
         specifier: ^2
@@ -83,6 +87,12 @@ packages:
     engines: {node: '>= 10'}
     hasBin: true
 
+  axml2xml@1.0.1:
+    resolution: {integrity: sha512-5cEBdZzRqviLuvrxf373jhj78tyn5AlCSuxYGAknYIKno0O/n1fGxegRNW9bU24MOU2NNiwwdXa7O/eFkn+x9Q==}
+
+  sprintf-js@1.1.3:
+    resolution: {integrity: sha512-Oo+0REFV59/rz3gfJNKQiBlwfHaSESl1pcGyABQsnnIfWOFt6JNj5gCog2U6MLZ//IGYD+nA8nI+mTShREReaA==}
+
 snapshots:
 
   '@tauri-apps/cli-darwin-arm64@2.2.7':
@@ -127,3 +137,9 @@ snapshots:
       '@tauri-apps/cli-win32-arm64-msvc': 2.2.7
       '@tauri-apps/cli-win32-ia32-msvc': 2.2.7
       '@tauri-apps/cli-win32-x64-msvc': 2.2.7
+
+  axml2xml@1.0.1:
+    dependencies:
+      sprintf-js: 1.1.3
+
+  sprintf-js@1.1.3: {}
