@@ -144,7 +144,7 @@ class ObjectArrayExtension {
 
     createArray(args) { this.arrays[args.name] = []; }
     sortArrayReg(args) { const arr = this.arrays[args.name]; if (!arr) return; const regex = new RegExp(args.reg); arr.sort((a, b) => String(a).match(regex)?.[0].localeCompare(String(b).match(regex)?.[0] || '')); }
-    getArrayItem(args) { return this.arrays[args.name]?.[args.index - 1] ?? null; }
+    getArrayItem(args) {let k = this.arrays[args.name]?.[args.index - 1] ?? null;return typeof (k) == 'object' ? JSON.stringify(k) : k; }
     deleteArrayItem(args) { const arr = this.arrays[args.name]; if (arr) arr.splice(args.x - 1, 1); }
     deleteFirstLast(args) { const arr = this.arrays[args.name]; if (arr) args.position === "first" ? arr.shift() : arr.pop(); }
     deleteArray(args) { delete this.arrays[args.name]; }
@@ -158,7 +158,7 @@ class ObjectArrayExtension {
     createObject(args) { this.objects[args.name] = {}; }
     getObjectKeys(args) { return this.objects[args.name] ? JSON.stringify(Object.keys(this.objects[args.name])) : null; }
     getObjectLength(args) { return this.objects[args.name] ? Object.keys(this.objects[args.name]).length : null; }
-    getObjectValue(args) { return this.objects[args.name]?.[args.key] ?? null; }
+    getObjectValue(args) {let k = this.objects[args.name]?.[args.key] ?? null;return typeof (k) == 'object' ? JSON.stringify(k) : k;}
     setObjectValue(args) { const obj = this.objects[args.name]; if (obj) obj[args.key] = args.value; }
     deleteObjectKey(args) { const obj = this.objects[args.name]; if (obj) delete obj[args.key]; }
     mergeObjects(args) { this.objects[args.target] = { ...this.objects[args.name1] || {}, ...this.objects[args.name2] || {} }; }
